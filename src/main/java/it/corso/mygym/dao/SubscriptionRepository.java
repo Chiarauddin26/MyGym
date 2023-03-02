@@ -1,11 +1,17 @@
 package it.corso.mygym.dao;
 
 import it.corso.mygym.model.Subscription;
+import it.corso.mygym.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
 
 public interface SubscriptionRepository extends JpaRepository<Subscription, Long> {
-
-    // TODO: find by paid=true
-
-    // TODO: find by active subscription
+    List<User> findByPaidTrue();
+    @Query(value = "SELECT u " +
+            "FROM User u, Subscription s " +
+            "WHERE u.id = s.user.id AND s.endDate >= CURRENT_DATE " +
+            "GROUP BY u.id")
+    List<User> findByActiveSub();
 }
