@@ -30,7 +30,8 @@ public class User implements Serializable {
     private LocalDate birthday;
     @NotNull
     private Boolean medicalCertificate;
-    private Boolean activated;
+    @NotNull
+    private Boolean activated = true;
 
     @OneToMany(mappedBy = "user")
     private List<Subscription> subscriptions;

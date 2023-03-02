@@ -1,5 +1,6 @@
 package it.corso.mygym.model;
 
+import it.corso.mygym.model.enums.Type;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,10 +24,12 @@ public class Subscription implements Serializable {
     private Double fee;
     @NotNull
     private Boolean paid;
+    @Column(name = "type")
+    private Type type;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-
     @ManyToOne
     @JoinColumn(name = "gym_id")
     private Gym gym;
