@@ -1,6 +1,7 @@
 package it.corso.mygym.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -12,6 +13,7 @@ import java.time.LocalDate;
 @Table(name =  "subscription" )
 @Getter
 @Setter
+@NoArgsConstructor
 public class Subscription implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
