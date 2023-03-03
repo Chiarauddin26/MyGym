@@ -28,19 +28,21 @@ public class UserControllerImpl implements UserController {
         return new ResponseEntity<>(userSaved, HttpStatus.CREATED);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("findBy/{id}")
     @Override
     public ResponseEntity<User> findById(@PathVariable(value="id") Long id) {
         User userFind = userService.findById(id);
         return new ResponseEntity<>(userFind, HttpStatus.FOUND);
     }
 
-    @GetMapping("/{includeInactiveFlag}")
+    @GetMapping("findAll/{includeInactiveFlag}")
     @Override
     public ResponseEntity<List<User>> findAll(@PathVariable(value="includeInactiveFlag") boolean includeInactiveFlag) {
         List<User> findAllUsers = userService.findAll(includeInactiveFlag);
         return new ResponseEntity<>(findAllUsers, HttpStatus.FOUND);
     }
+
+
 
 
 

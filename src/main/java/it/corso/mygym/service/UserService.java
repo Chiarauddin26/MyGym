@@ -11,10 +11,10 @@ public interface UserService {
 
     User findById(Long id);
 
+    List<User> findAll(boolean includeInactiveFlag);
+
     User deleteById(Long id);
 
     User update(Long id, UserDto userDto);
-
-    List<User> findAll(boolean includeInactiveFlag);
 
 }

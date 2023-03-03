@@ -15,10 +15,13 @@ public interface UserController {
     @PostMapping()
     ResponseEntity<User> save(@RequestBody UserDto userDto);
 
-    @GetMapping("/{id}")
+    @GetMapping("findBy/{id}")
     ResponseEntity<User> findById(@PathVariable(value="id") Long id);
 
-    @GetMapping("/{includeInactiveFlag}")
+    @GetMapping("findAll/{includeInactiveFlag}")
     ResponseEntity<List<User>> findAll(@PathVariable(value="includeInactiveFlag") boolean includeInactiveFlag);
+
+    @PutMapping("/update/{id}")
+    ResponseEntity<User> update(@PathVariable(value = "id") Long id, UserDto userDto);
 
 }
