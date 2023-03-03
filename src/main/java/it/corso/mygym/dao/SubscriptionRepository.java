@@ -11,10 +11,13 @@ import java.util.List;
 
 @Repository
 public interface SubscriptionRepository extends JpaRepository<Subscription, Long> {
+
     List<User> findByPaidTrue();
+/*
     @Query(value = "SELECT u " +
             "FROM User u, Subscription s " +
-            "WHERE u.id = s.user.id AND s.endDate >= CURRENT_DATE " +
+            "WHERE u.id = s.user.id AND s.endSubscription >= CURRENT_DATE " +
             "GROUP BY u.id")
     List<User> findByActiveSub();
+ */
 }

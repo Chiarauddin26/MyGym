@@ -21,5 +21,4 @@ public interface UserController {
     @GetMapping("/{includeInactiveFlag}")
     ResponseEntity<List<User>> findAll(@PathVariable(value="includeInactiveFlag") boolean includeInactiveFlag);
 
-
 }
