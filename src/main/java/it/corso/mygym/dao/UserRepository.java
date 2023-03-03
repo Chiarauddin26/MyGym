@@ -12,8 +12,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByActivatedTrue();
     @Query(value = "SELECT u " +
             "FROM User u, Subscription s " +
-            "WHERE u.activeFlag = true AND " +
-            "u.id = s.user.id AND s.endDate >= CURRENT_DATE " +
+            "WHERE u.activated = true AND " +
+            "u.id = s.user.id AND s.endSubscription >= CURRENT_DATE " +
             "GROUP BY u.id")
     List<User> findByActivatedTrueAndActiveSub();
 }

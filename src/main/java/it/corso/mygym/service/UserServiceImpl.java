@@ -12,6 +12,7 @@ import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -63,6 +64,14 @@ public class UserServiceImpl implements UserService {
 
             return repo.saveAndFlush(userOld.get());
         } else throw new ResourceNotFoundException();
+    }
+
+    @Override
+    public List<User> findAll(boolean includeInactiveFlag) {
+        if(includeInactiveFlag)
+            return repo.findAll();
+        else
+            return repo.findByActivatedTrue();
     }
 
     public static void copyNonNullProperties(Object src, Object target) {
